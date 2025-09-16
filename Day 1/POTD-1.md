@@ -20,81 +20,47 @@ LeetCode – [Replace Non-Coprimes in Array](https://leetcode.com/problems/repla
 I felt this greedy approach should work because at each step I’m merging pairs into one number.
 
 **Code (1st attempt):**
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   class Solution {      public static List replaceNonCoprimes(int[] nums) {          List l = new ArrayList<>();          if( nums.length == 1){              l.add(nums[0]);              return l;          }          for( int x : nums){              l.add(x);          }          int q = 1;          int p = 0;          while( q < l.size()){              int gcdval = gcd(l.get(p), l.get(q));              if( gcdval > 1){                  int lcm = (l.get(p) / gcdval)*l.get(q);                  l.remove(p);                  l.remove(p);                  l.add(p, lcm);              }              else{                  p++;                  q++;              }          }                return l;      }      public static int gcd(int a , int b){          return (b == 0)? a : gcd(b, a%b);      }  } 
-
-# Java Solution: Replace Non-Coprime Numbers
-
-## Problem
-Given an array of integers, replace adjacent non-coprime numbers with their LCM (Least Common Multiple) until no adjacent non-coprime pairs remain.
-
-## Solution Code
-
 ```java
 import java.util.ArrayList;
 import java.util.List;
 
 class Solution {
-    /**
-     * Replaces adjacent non-coprime numbers in an array with their LCM
-     * until no adjacent non-coprime pairs remain.
-     *
-     * @param nums the input array of integers
-     * @return a list with non-coprime adjacent pairs replaced by their LCM
-     */
     public static List<Integer> replaceNonCoprimes(int[] nums) {
         List<Integer> l = new ArrayList<>();
         
-        // Handle single element case
         if (nums.length == 1) {
             l.add(nums[0]);
             return l;
         }
 
-        // Convert array to list for easier manipulation
         for (int x : nums) {
             l.add(x);
         }
 
-        int p = 0; // First pointer
-        int q = 1; // Second pointer
+        int p = 0; 
+        int q = 1; 
 
-        // Process the list until we reach the end
         while (q < l.size()) {
             int gcdval = gcd(l.get(p), l.get(q));
             
-            // If numbers are non-coprime (gcd > 1)
             if (gcdval > 1) {
-                // Calculate LCM using formula: LCM(a, b) = (a * b) / GCD(a, b)
                 int lcm = (l.get(p) / gcdval) * l.get(q);
-                
-                // Remove both elements and replace with their LCM
+
                 l.remove(p);
                 l.remove(p);
                 l.add(p, lcm);
-                
-                // Reset pointers to check new adjacent pairs
+
                 if (p > 0) {
-                    p--; // Move back to check previous element
-                    q--; // Maintain adjacent relationship
+                    p--; 
+                    q--; 
                 }
             } else {
-                // Move to next pair if current pair is coprime
                 p++;
                 q++;
             }
         }      
         return l;
     }
-
-    /**
-     * Calculates the Greatest Common Divisor (GCD) of two numbers
-     * using the Euclidean algorithm.
-     *
-     * @param a the first number
-     * @param b the second number
-     * @return the GCD of a and b
-     */
     public static int gcd(int a, int b) {
         return (b == 0) ? a : gcd(b, a % b);
     }
@@ -117,7 +83,46 @@ class Solution {
 
 **Code (2nd attempt):**
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   class Solution {      public static List replaceNonCoprimes(int[] nums) {          List l = new ArrayList<>();          if( nums.length == 1){              l.add(nums[0]);              return l;          }          for( int x : nums){              l.add(x);          }          int q = 1;          int p = 0;          while( q < l.size()){              int gcdval = gcd(l.get(p), l.get(q));              if( gcdval > 1){                  int lcm = (l.get(p) / gcdval)*l.get(q);                  l.remove(p);                  l.remove(p);                  l.add(p, lcm);                  q = 1;                  p = 0;              }              else{                  p++;                  q++;              }          }                return l;      }      public static int gcd(int a , int b){          return (b == 0)? a : gcd(b, a%b);      }  }   `
+```java
+class Solution {
+    public static List<Integer> replaceNonCoprimes(int[] nums) {
+
+        List<Integer> l = new ArrayList<>();
+        if( nums.length == 1){
+            l.add(nums[0]);
+            return l;
+        }
+
+        for( int x : nums){
+            l.add(x);
+        }
+
+        int q = 1;
+        int p = 0;
+
+        while( q < l.size()){
+            int gcdval = gcd(l.get(p), l.get(q));
+            if( gcdval > 1){
+                int lcm = (l.get(p) / gcdval)*l.get(q);
+                l.remove(p);
+                l.remove(p);
+                l.add(p, lcm);
+                q = 1;
+                p = 0;
+            }
+            else{
+                p++;
+                q++;
+            }
+        }      
+        return l;
+    }
+
+    public static int gcd(int a , int b){
+        return (b == 0)? a : gcd(b, a%b);
+    }
+}
+```
 
 **Mistakes / Learnings**
 
@@ -148,7 +153,37 @@ This way, merges propagate backwards automatically without resetting the entire 
 
 **Code (Final attempt):**
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   class Solution {      public static List replaceNonCoprimes(int[] nums) {          List l = new ArrayList<>();          if( nums.length == 1){              l.add(nums[0]);              return l;          }          for( int x : nums){              while( l.size() > 0){                  int last = l.get(l.size()-1);                  int gcdval = gcd(last, x);                  if( gcdval == 1){                      break;                  }                  l.remove(l.size()-1);                  x = (last/gcdval)*x;              }              l.add(x);          }                 return l;      }      public static int gcd(int a , int b){          return (b == 0)? a : gcd(b, a%b);      }  }   `
+```java
+class Solution {
+    public static List<Integer> replaceNonCoprimes(int[] nums) {
+
+        List<Integer> l = new ArrayList<>();
+        if( nums.length == 1){
+            l.add(nums[0]);
+            return l;
+        }
+
+        for( int x : nums){
+            while( l.size() > 0){
+                int last = l.get(l.size()-1);
+                int gcdval = gcd(last, x);
+
+                if( gcdval == 1){
+                    break;
+                }
+                l.remove(l.size()-1);
+                x = (last/gcdval)*x;
+            }
+            l.add(x);
+        }       
+        return l;
+    }
+
+    public static int gcd(int a , int b){
+        return (b == 0)? a : gcd(b, a%b);
+    }
+}
+```
 
 **Mistakes Fixed**
 
