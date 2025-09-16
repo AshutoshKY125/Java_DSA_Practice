@@ -48,9 +48,8 @@ Day-02-Problem-Name/     ├── story.md     ├── code.java     └─�
 🤝 Let’s Connect!
 -----------------
 
-I’m also sharing my daily journey with reflections and insights on **LinkedIn** 🌍.👉 [Follow me here](#) to stay updated!
+I’m also sharing my daily journey with reflections and insights on **LinkedIn** 🌍.👉 [Follow me here](https://www.linkedin.com/in/ashutosh-kumar-yadav-a74b58251) to stay updated!
 
-<<<<<<< HEAD
 ⭐ If you find this repo inspiring, don’t forget to **star it** and cheer me on in this journey! 🌟🔥
 =======
 Connect With Me
