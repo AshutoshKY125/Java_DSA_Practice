@@ -49,4 +49,13 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 I’m also sharing my daily journey with reflections and insights on **LinkedIn** 🌍.👉 [Follow me here](#) to stay updated!
 
+<<<<<<< HEAD
 ⭐ If you find this repo inspiring, don’t forget to **star it** and cheer me on in this journey! 🌟🔥
+=======
+Connect With Me
+---------------
+
+I’m also sharing my daily journey on LinkedIn with reflections and insights.Follow along here: [My LinkedIn Profile](https://www.linkedin.com/in/ashutosh-kumar-yadav-a74b58251)
+
+If you find this interesting or helpful, feel free to star the repo and follow my journey!
+>>>>>>> 1e1323bc2b2b0b26998dbd3c8844dd2525777a43
