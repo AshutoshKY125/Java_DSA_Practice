@@ -49,6 +49,6 @@ Day-02-Problem-Name/  story.md  code.java  screenshot.png
 Connect With Me
 ---------------
 
-I’m also sharing my daily journey on LinkedIn with reflections and insights.Follow along here: [My LinkedIn Profile](#)
+I’m also sharing my daily journey on LinkedIn with reflections and insights.Follow along here: [My LinkedIn Profile](https://www.linkedin.com/in/ashutosh-kumar-yadav-a74b58251)
 
 If you find this interesting or helpful, feel free to star the repo and follow my journey!
