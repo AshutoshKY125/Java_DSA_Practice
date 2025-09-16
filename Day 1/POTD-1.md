@@ -5,6 +5,9 @@ Day 1 – Replace Non-Coprimes in Array (LeetCode POTD)
 
 LeetCode – [Replace Non-Coprimes in Array](https://leetcode.com/problems/replace-non-coprime-numbers-in-array/submissions/1773143252/?envType=daily-question&envId=2025-09-16)
 
+### My LeetCode Attempt
+()
+
 🧠 Iteration 1 – First Intuition
 --------------------------------
 
