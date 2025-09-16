@@ -42,7 +42,8 @@ There are many repos with just correct solutions…But this one is about the **j
 🗂️ Repository Structure
 ------------------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   Day-01-Problem-Name/     ├── story.md     ├── code.java     └── screenshot.png  Day-02-Problem-Name/     ├── story.md     ├── code.java     └── screenshot.png   `
+Day-01-Problem-Name/     ├── story.md     ├── code.java     └── screenshot.png  
+Day-02-Problem-Name/     ├── story.md     ├── code.java     └── screenshot.png   `
 
 🤝 Let’s Connect!
 -----------------
@@ -58,4 +59,3 @@ Connect With Me
 I’m also sharing my daily journey on LinkedIn with reflections and insights.Follow along here: [My LinkedIn Profile](https://www.linkedin.com/in/ashutosh-kumar-yadav-a74b58251)
 
 If you find this interesting or helpful, feel free to star the repo and follow my journey!
->>>>>>> 1e1323bc2b2b0b26998dbd3c8844dd2525777a43
