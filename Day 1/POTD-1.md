@@ -98,9 +98,10 @@ class Solution {
     public static int gcd(int a, int b) {
         return (b == 0) ? a : gcd(b, a % b);
     }
-}```
+}
+```
 
-**Mistakes / Learnings**
+ **Mistakes / Learnings**
 
 *   The logic broke down when merging created new non-coprimes earlier in the list.
     
