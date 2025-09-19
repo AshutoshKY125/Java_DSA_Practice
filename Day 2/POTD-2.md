@@ -28,8 +28,7 @@ LeetCode – [3484\. Design Spreadsheet](https://leetcode.com/problems/design-sp
 
 **Code (1st attempt):**
 
-java
-```
+```java
 class Spreadsheet {
 
     List<List<Integer>> spread = new ArrayList<>();
@@ -132,8 +131,8 @@ class Spreadsheet {
 
 **Code (2nd attempt):**
 
-java
-```
+
+```java
 class Spreadsheet {
 
     Map<String, Integer> m = new HashMap<>();
@@ -205,8 +204,8 @@ The formula parsing now correctly extracts the two operands and checks if they a
 
 **Code (Final attempt):**
 
-java
-```
+
+```java
 class Spreadsheet {
 
     Map<String, Integer> m = new HashMap<>();
