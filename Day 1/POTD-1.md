@@ -5,6 +5,9 @@ Day 1 – Replace Non-Coprimes in Array (LeetCode POTD)
 
 LeetCode – [Replace Non-Coprimes in Array](https://leetcode.com/problems/replace-non-coprime-numbers-in-array/submissions/1773143252/?envType=daily-question&envId=2025-09-16)
 
+### My LeetCode Attempt
+![My Attempt](POTD-1.png)
+
 🧠 Iteration 1 – First Intuition
 --------------------------------
 
@@ -20,10 +23,54 @@ LeetCode – [Replace Non-Coprimes in Array](https://leetcode.com/problems/repla
 I felt this greedy approach should work because at each step I’m merging pairs into one number.
 
 **Code (1st attempt):**
+```java
+import java.util.ArrayList;
+import java.util.List;
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   class Solution {      public static List replaceNonCoprimes(int[] nums) {          List l = new ArrayList<>();          if( nums.length == 1){              l.add(nums[0]);              return l;          }          for( int x : nums){              l.add(x);          }          int q = 1;          int p = 0;          while( q < l.size()){              int gcdval = gcd(l.get(p), l.get(q));              if( gcdval > 1){                  int lcm = (l.get(p) / gcdval)*l.get(q);                  l.remove(p);                  l.remove(p);                  l.add(p, lcm);              }              else{                  p++;                  q++;              }          }                return l;      }      public static int gcd(int a , int b){          return (b == 0)? a : gcd(b, a%b);      }  }   `
+class Solution {
+    public static List<Integer> replaceNonCoprimes(int[] nums) {
+        List<Integer> l = new ArrayList<>();
+        
+        if (nums.length == 1) {
+            l.add(nums[0]);
+            return l;
+        }
 
-**Mistakes / Learnings**
+        for (int x : nums) {
+            l.add(x);
+        }
+
+        int p = 0; 
+        int q = 1; 
+
+        while (q < l.size()) {
+            int gcdval = gcd(l.get(p), l.get(q));
+            
+            if (gcdval > 1) {
+                int lcm = (l.get(p) / gcdval) * l.get(q);
+
+                l.remove(p);
+                l.remove(p);
+                l.add(p, lcm);
+
+                if (p > 0) {
+                    p--; 
+                    q--; 
+                }
+            } else {
+                p++;
+                q++;
+            }
+        }      
+        return l;
+    }
+    public static int gcd(int a, int b) {
+        return (b == 0) ? a : gcd(b, a % b);
+    }
+}
+```
+
+ **Mistakes / Learnings**
 
 *   The logic broke down when merging created new non-coprimes earlier in the list.
     
@@ -39,7 +86,46 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 **Code (2nd attempt):**
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   class Solution {      public static List replaceNonCoprimes(int[] nums) {          List l = new ArrayList<>();          if( nums.length == 1){              l.add(nums[0]);              return l;          }          for( int x : nums){              l.add(x);          }          int q = 1;          int p = 0;          while( q < l.size()){              int gcdval = gcd(l.get(p), l.get(q));              if( gcdval > 1){                  int lcm = (l.get(p) / gcdval)*l.get(q);                  l.remove(p);                  l.remove(p);                  l.add(p, lcm);                  q = 1;                  p = 0;              }              else{                  p++;                  q++;              }          }                return l;      }      public static int gcd(int a , int b){          return (b == 0)? a : gcd(b, a%b);      }  }   `
+```java
+class Solution {
+    public static List<Integer> replaceNonCoprimes(int[] nums) {
+
+        List<Integer> l = new ArrayList<>();
+        if( nums.length == 1){
+            l.add(nums[0]);
+            return l;
+        }
+
+        for( int x : nums){
+            l.add(x);
+        }
+
+        int q = 1;
+        int p = 0;
+
+        while( q < l.size()){
+            int gcdval = gcd(l.get(p), l.get(q));
+            if( gcdval > 1){
+                int lcm = (l.get(p) / gcdval)*l.get(q);
+                l.remove(p);
+                l.remove(p);
+                l.add(p, lcm);
+                q = 1;
+                p = 0;
+            }
+            else{
+                p++;
+                q++;
+            }
+        }      
+        return l;
+    }
+
+    public static int gcd(int a , int b){
+        return (b == 0)? a : gcd(b, a%b);
+    }
+}
+```
 
 **Mistakes / Learnings**
 
@@ -70,7 +156,37 @@ This way, merges propagate backwards automatically without resetting the entire 
 
 **Code (Final attempt):**
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   class Solution {      public static List replaceNonCoprimes(int[] nums) {          List l = new ArrayList<>();          if( nums.length == 1){              l.add(nums[0]);              return l;          }          for( int x : nums){              while( l.size() > 0){                  int last = l.get(l.size()-1);                  int gcdval = gcd(last, x);                  if( gcdval == 1){                      break;                  }                  l.remove(l.size()-1);                  x = (last/gcdval)*x;              }              l.add(x);          }                 return l;      }      public static int gcd(int a , int b){          return (b == 0)? a : gcd(b, a%b);      }  }   `
+```java
+class Solution {
+    public static List<Integer> replaceNonCoprimes(int[] nums) {
+
+        List<Integer> l = new ArrayList<>();
+        if( nums.length == 1){
+            l.add(nums[0]);
+            return l;
+        }
+
+        for( int x : nums){
+            while( l.size() > 0){
+                int last = l.get(l.size()-1);
+                int gcdval = gcd(last, x);
+
+                if( gcdval == 1){
+                    break;
+                }
+                l.remove(l.size()-1);
+                x = (last/gcdval)*x;
+            }
+            l.add(x);
+        }       
+        return l;
+    }
+
+    public static int gcd(int a , int b){
+        return (b == 0)? a : gcd(b, a%b);
+    }
+}
+```
 
 **Mistakes Fixed**
 
